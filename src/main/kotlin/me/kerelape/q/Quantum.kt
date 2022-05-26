@@ -1,5 +1,5 @@
 package me.kerelape.q
 
-interface Quantum<T> {
+fun interface Quantum<out T> {
     suspend fun value(): T
 }
