@@ -1,8 +1,8 @@
 package me.kerelape.q.logic
 
 import me.kerelape.q.Condition
-import me.kerelape.q.Q
+import me.kerelape.q.numbers.QNumber
 
-class Equality<T : Comparable<T>>(private val a: Q<T>, private val b: Q<T>) : Condition {
-    override suspend fun value() = this.a.value().compareTo(b.value()) == 0
+class Equality<T : Number>(private val a: QNumber<T>, private val b: QNumber<T>) : Condition {
+    override suspend fun value() = this.a.subtract(this.b).value() == 0
 }
