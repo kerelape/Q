@@ -8,5 +8,5 @@ interface Memory<T> : Q<T> {
     /**
      * @return Task that write [data] to memory
      */
-    fun write(data: T): Task
+    fun write(data: Q<T>): Task
 }
