@@ -9,7 +9,7 @@ class Substring(
     private val length: QNumber<Int>
 ) : Text {
     constructor(origin: Text, length: QNumber<Int>) : this(origin, QInt { 0 }, length)
-    
+
     override suspend fun value(): String {
         return this.origin.value().substring(this.offset.value()..this.length.value())
     }
