@@ -6,7 +6,7 @@ import me.kerelape.q.Task
 interface Memory<T> : Q<T> {
 
     /**
-     * @return Task that write [data] to memory
+     * @return Task that writes [data] to memory
      */
     fun write(data: Q<T>): Task
 }
