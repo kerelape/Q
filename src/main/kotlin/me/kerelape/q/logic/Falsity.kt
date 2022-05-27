@@ -1,5 +1,6 @@
-package me.kerelape.q
+package me.kerelape.q.logic
 
 object Falsity : Condition {
+
     override suspend fun value() = false
 }
