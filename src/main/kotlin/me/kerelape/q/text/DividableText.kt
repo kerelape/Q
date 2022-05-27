@@ -4,7 +4,6 @@ import me.kerelape.q.Dividable
 import me.kerelape.q.Q
 import me.kerelape.q.arithmetic.Difference
 import me.kerelape.q.arithmetic.Quotient
-import me.kerelape.q.arithmetic.Reminder
 import me.kerelape.q.numbers.QInt
 import me.kerelape.q.numbers.QNumber
 
