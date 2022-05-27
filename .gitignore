@@ -26,7 +26,7 @@ hs_err_pid*
 .DS_Store
 
 # Build folder 
-./build
+build
 
 # Gradle trash
 .gradle
