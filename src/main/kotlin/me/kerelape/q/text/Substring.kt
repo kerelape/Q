@@ -1,12 +1,13 @@
 package me.kerelape.q.text
 
+import me.kerelape.q.Q
 import me.kerelape.q.numbers.QInt
 import me.kerelape.q.numbers.QNumber
 
 class Substring(
     private val origin: Text,
-    private val offset: QNumber<Int>,
-    private val length: QNumber<Int>
+    private val offset: Q<Int>,
+    private val length: Q<Int>
 ) : Text {
     constructor(origin: Text, length: QNumber<Int>) : this(origin, QInt { 0 }, length)
 
