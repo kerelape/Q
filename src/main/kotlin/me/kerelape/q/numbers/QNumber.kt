@@ -1,29 +1,17 @@
 package me.kerelape.q.numbers
 
 import me.kerelape.q.Q
+import me.kerelape.q.Dividable
+import me.kerelape.q.Multipliable
+import me.kerelape.q.Subtractable
+import me.kerelape.q.Summable
 
-interface QNumber<T : kotlin.Number> : Q<T> {
-
-    /**
-     * @return Sum of this and [other]
-     */
-    fun add(other: QNumber<T>): QNumber<T>
-
-    /**
-     * @return Difference between this and [other]
-     */
-    fun subtract(other: QNumber<T>): QNumber<T>
-
-    /**
-     * @return Product of this and [by] (multiplier)
-     */
-    fun multiply(by: QNumber<T>): QNumber<T>
-
-    /**
-     * @return Quotient of this and [by] (divisor)
-     */
-    fun divide(by: QNumber<T>): QNumber<T>
-}
+interface QNumber<T : Number> :
+    Q<T>,
+    Summable<QNumber<T>, QNumber<T>>,
+    Subtractable<QNumber<T>, QNumber<T>>,
+    Multipliable<QNumber<T>, QNumber<T>>,
+    Dividable<QNumber<T>, QNumber<T>>
 
 fun QNumber<*>.asByte(): QNumber<Byte> = QByte { this.value().toByte() }
 

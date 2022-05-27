@@ -6,11 +6,11 @@ class QDouble(private val origin: Q<Double>) : QNumber<Double> {
 
     override suspend fun value() = this.origin.value()
 
-    override fun add(other: QNumber<Double>) = QDouble { this.value() + other.value() }
+    override fun add(addend: QNumber<Double>) = Q { QDouble { this.value() + addend.value() } }
 
-    override fun subtract(other: QNumber<Double>) = QDouble { this.value() - other.value() }
+    override fun subtract(subtrahend: QNumber<Double>) = Q { QDouble { this.value() - subtrahend.value() } }
 
-    override fun multiply(by: QNumber<Double>) = QDouble { this.value() * by.value() }
+    override fun multiply(multiplicand: QNumber<Double>) = Q { QDouble { this.value() * multiplicand.value() } }
 
-    override fun divide(by: QNumber<Double>) = QDouble { this.value() / by.value() }
+    override fun divide(divisor: QNumber<Double>) = Q { QDouble { this.value() / divisor.value() } }
 }
