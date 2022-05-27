@@ -5,6 +5,7 @@ import me.kerelape.q.Dividable
 import me.kerelape.q.Multipliable
 import me.kerelape.q.Subtractable
 import me.kerelape.q.Summable
+import me.kerelape.q.text.Text
 
 interface QNumber<T : Number> :
     Q<T>,
@@ -24,3 +25,5 @@ fun QNumber<*>.asLong(): QNumber<Long> = QLong { this.value().toLong() }
 fun QNumber<*>.asFloat(): QNumber<Float> = QFloat { this.value().toFloat() }
 
 fun QNumber<*>.asDouble(): QNumber<Double> = QDouble { this.value().toDouble() }
+
+fun QNumber<*>.asText(): Text = Text { this.value().toString() }
