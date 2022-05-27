@@ -13,4 +13,6 @@ class QDouble(private val origin: Q<Double>) : QNumber<Double> {
     override fun multiply(multiplicand: QNumber<Double>) = Q { QDouble { this.value() * multiplicand.value() } }
 
     override fun divide(divisor: QNumber<Double>) = Q { QDouble { this.value() / divisor.value() } }
+
+    override fun modulo(divisor: QNumber<Double>) = Q { QDouble { this.value() % divisor.value() } }
 }

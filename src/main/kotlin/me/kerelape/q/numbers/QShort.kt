@@ -13,4 +13,6 @@ class QShort(private val origin: Q<Short>) : QNumber<Short> {
     override fun multiply(multiplicand: QNumber<Short>) = Q { QInt { this.value() * multiplicand.value() }.asShort() }
 
     override fun divide(divisor: QNumber<Short>) = Q { QInt { this.value() / divisor.value() }.asShort() }
+
+    override fun modulo(divisor: QNumber<Short>) = Q { QInt { this.value() % divisor.value() }.asShort() }
 }

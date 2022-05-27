@@ -13,4 +13,6 @@ class QByte(private val origin: Q<Byte>) : QNumber<Byte> {
     override fun multiply(multiplicand: QNumber<Byte>) = Q { QInt { this.value() * multiplicand.value() }.asByte() }
 
     override fun divide(divisor: QNumber<Byte>) = Q { QInt { this.value() / divisor.value() }.asByte() }
+
+    override fun modulo(divisor: QNumber<Byte>) = Q { QInt { this.value() % divisor.value() }.asByte() }
 }
