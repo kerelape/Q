@@ -8,10 +8,10 @@ import me.kerelape.q.Summable
 
 interface QNumber<T : Number> :
     Q<T>,
-    Summable<QNumber<T>, QNumber<T>>,
-    Subtractable<QNumber<T>, QNumber<T>>,
-    Multipliable<QNumber<T>, QNumber<T>>,
-    Dividable<QNumber<T>, QNumber<T>>
+    Summable<Q<T>, QNumber<T>>,
+    Subtractable<Q<T>, QNumber<T>>,
+    Multipliable<Q<T>, QNumber<T>>,
+    Dividable<Q<T>, QNumber<T>>
 
 fun QNumber<*>.asByte(): QNumber<Byte> = QByte { this.value().toByte() }
 

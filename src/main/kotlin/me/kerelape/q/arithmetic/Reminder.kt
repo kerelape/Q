@@ -5,5 +5,5 @@ import me.kerelape.q.Q
 
 class Reminder<in O, out R>(private val dividend: Dividable<O, R>, private val divisor: O) : Q<R> {
 
-    override suspend fun value() = this.dividend.modulo(this.divisor).value()
+    override suspend fun value() = this.dividend.modulo(this.divisor)
 }
