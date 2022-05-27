@@ -1,7 +1,6 @@
 package me.kerelape.q.text
 
 import me.kerelape.q.Dividable
-import me.kerelape.q.Q
 import me.kerelape.q.arithmetic.Difference
 import me.kerelape.q.arithmetic.Quotient
 import me.kerelape.q.numbers.QInt
@@ -18,7 +17,7 @@ class DividableText(private val origin: Text) : Text, Dividable<QNumber<Int>, Te
      * ```
      * @return Q { [origin] divided by [divisor] }
      */
-    override fun divide(divisor: QNumber<Int>) = Q {
+    override fun divide(divisor: QNumber<Int>) =
         Substring(
             this,
             Quotient(
@@ -26,9 +25,8 @@ class DividableText(private val origin: Text) : Text, Dividable<QNumber<Int>, Te
                     Length(this)
                 ),
                 divisor
-            ).value()
+            )
         )
-    }
 
     /**
      * Example:
@@ -37,7 +35,7 @@ class DividableText(private val origin: Text) : Text, Dividable<QNumber<Int>, Te
      * ```
      * @return Q { reminder of [origin] divided by [divisor] }
      */
-    override fun modulo(divisor: QNumber<Int>) = Q {
+    override fun modulo(divisor: QNumber<Int>) =
         Substring(
             this,
             Quotient(
@@ -45,13 +43,12 @@ class DividableText(private val origin: Text) : Text, Dividable<QNumber<Int>, Te
                     Length(this)
                 ),
                 divisor
-            ).value(),
+            ),
             Difference(
                 QInt(
                     Length(this),
                 ),
                 QInt { 1 }
-            ).value()
+            )
         )
-    }
 }
