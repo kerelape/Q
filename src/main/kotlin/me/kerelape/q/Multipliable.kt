@@ -7,3 +7,5 @@ interface Multipliable<in O, out R> {
      */
     fun multiply(multiplicand: O): R
 }
+
+operator fun<O, R> Multipliable<O, R>.times(other: O) = this.multiply(other)
