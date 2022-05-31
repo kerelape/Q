@@ -7,3 +7,5 @@ interface Subtractable<in O, out R> {
      */
     fun subtract(subtrahend: O): R
 }
+
+operator fun<O, R> Subtractable<O, R>.minus(other: O) = this.subtract(other)
