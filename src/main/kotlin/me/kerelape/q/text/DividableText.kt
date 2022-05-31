@@ -1,54 +1,35 @@
 package me.kerelape.q.text
 
 import me.kerelape.q.Dividable
-import me.kerelape.q.arithmetic.Difference
-import me.kerelape.q.arithmetic.Quotient
+import me.kerelape.q.Q
 import me.kerelape.q.numbers.QInt
-import me.kerelape.q.numbers.QNumber
 
-class DividableText(private val origin: Text) : Text, Dividable<QNumber<Int>, Text> {
-
-    override suspend fun value() = this.origin.value()
+class DividableText(private val origin: Text) : Text by origin, Dividable<Q<Int>, Text> {
 
     /**
      * Example:
      * ```
-     * DividableText { "Hello, World!" }.divide(QInt { 2 }).value() // Text { "Hello," }
+     * DividableText { "Hello, World!" }.divide { 2 } // Text { "Hello," }
      * ```
      * @return Q { [origin] divided by [divisor] }
      */
-    override fun divide(divisor: QNumber<Int>) =
+    override fun divide(divisor: Q<Int>) =
         Substring(
             this,
-            Quotient(
-                QInt(
-                    Length(this)
-                ),
-                divisor
-            )
+            QInt(Length(this)).divide(divisor)
         )
 
     /**
      * Example:
      * ```
-     * DividableText { "Hello, World!" }.modulo(QInt { 2 }).value() // Text { " World!" }
+     * DividableText { "Hello, World!" }.modulo { 2 } // Text { " World!" }
      * ```
      * @return Q { reminder of [origin] divided by [divisor] }
      */
-    override fun modulo(divisor: QNumber<Int>) =
+    override fun modulo(divisor: Q<Int>) =
         Substring(
             this,
-            Quotient(
-                QInt(
-                    Length(this)
-                ),
-                divisor
-            ),
-            Difference(
-                QInt(
-                    Length(this),
-                ),
-                QInt { 1 }
-            )
+            QInt(Length(this)).divide(divisor),
+            QInt(Length(this)).subtract { 1 }
         )
 }
