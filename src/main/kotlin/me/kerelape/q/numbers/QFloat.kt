@@ -2,9 +2,7 @@ package me.kerelape.q.numbers
 
 import me.kerelape.q.Q
 
-class QFloat(private val origin: Q<Float>) : QNumber<Float> {
-
-    override suspend fun value() = this.origin.value()
+class QFloat(private val origin: Q<Float>) : QNumber<Float>, Q<Float> by origin {
 
     override fun add(addend: Q<Float>) = QFloat { this.value() + addend.value() }
 

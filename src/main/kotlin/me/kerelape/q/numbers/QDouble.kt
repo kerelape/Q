@@ -2,9 +2,7 @@ package me.kerelape.q.numbers
 
 import me.kerelape.q.Q
 
-class QDouble(private val origin: Q<Double>) : QNumber<Double> {
-
-    override suspend fun value() = this.origin.value()
+class QDouble(private val origin: Q<Double>) : QNumber<Double>, Q<Double> by origin {
 
     override fun add(addend: Q<Double>) = QDouble { this.value() + addend.value() }
 

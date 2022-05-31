@@ -2,9 +2,7 @@ package me.kerelape.q.numbers
 
 import me.kerelape.q.Q
 
-class QByte(private val origin: Q<Byte>) : QNumber<Byte> {
-
-    override suspend fun value() = this.origin.value()
+class QByte(private val origin: Q<Byte>) : QNumber<Byte>, Q<Byte> by origin {
 
     override fun add(addend: Q<Byte>) = QInt { this.value() + addend.value() }.asByte()
 
