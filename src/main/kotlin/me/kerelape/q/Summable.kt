@@ -7,3 +7,5 @@ interface Summable<in O, out R> {
      */
     fun add(addend: O): R
 }
+
+operator fun<O, R> Summable<O, R>.plus(other: O) = this.add(other)
