@@ -14,3 +14,5 @@ interface Dividable<in O, out R> {
 }
 
 operator fun<O, R> Dividable<O, R>.div(other: O) = this.divide(other)
+
+operator fun<O, R> Dividable<O, R>.rem(other: O) = this.modulo(other)
