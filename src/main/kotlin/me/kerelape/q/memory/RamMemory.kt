@@ -3,7 +3,7 @@ package me.kerelape.q.memory
 import me.kerelape.q.Q
 import me.kerelape.q.Task
 
-class HeapMemory(private var value: ByteArray = byteArrayOf()) : Memory<ByteArray> {
+class RamMemory(private var value: ByteArray = byteArrayOf()) : Memory<ByteArray> {
 
     override suspend fun value() = this.value
 
